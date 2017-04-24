@@ -46,18 +46,23 @@ namespace Board
             // Настройка логики проверки имен пользователей
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
-                AllowOnlyAlphanumericUserNames = false,
+                AllowOnlyAlphanumericUserNames = true,
                 RequireUniqueEmail = true
             };
 
             // Настройка логики проверки паролей
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                //Минимальная длинна пароля
+                RequiredLength = 8,
+                //true, то пароль должен будет иметь как минимум один символ, который не является алфавитно-цифровым
+                RequireNonLetterOrDigit = false,
+                //true,то обязательное использованиеы цифры
                 RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                //true,то обязательное  использование прописных букв
+                RequireLowercase = false,
+                //true,то обязательное  использование заглавные буквы
+                RequireUppercase = false,
             };
 
             // Настройка параметров блокировки по умолчанию
