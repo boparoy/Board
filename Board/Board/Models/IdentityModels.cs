@@ -26,6 +26,8 @@ namespace Board.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        //code fitst коннект нашего класса ToDo в бд
+        public DbSet<ToDo> ToDos { get; set; }
 
         public static ApplicationDbContext Create()
         {

@@ -18,7 +18,7 @@ namespace Board
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Подключите здесь службу почты для отправки сообщения.
+            
             return Task.FromResult(0);
         }
     }
@@ -27,7 +27,7 @@ namespace Board
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Подключите здесь службу SMS, чтобы отправить текстовое сообщение.
+           
             return Task.FromResult(0);
         }
     }
@@ -46,6 +46,7 @@ namespace Board
             // Настройка логики проверки имен пользователей
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
+                //AllowOnlyAlphanumericUserNames: если равно true, то юзернейм должен содержать только алфавитно-цифровые символы
                 AllowOnlyAlphanumericUserNames = true,
                 RequireUniqueEmail = true
             };
